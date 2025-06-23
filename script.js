@@ -3,7 +3,7 @@ const themeBtn = document.getElementById('themeBtn');
 const body = document.body;
 
 // Check for saved theme preference or default to light mode
-const currentTheme = localStorage.getItem('theme') || 'light';
+const currentTheme = localStorage.getItem('theme') || 'dark';
 body.setAttribute('data-theme', currentTheme);
 
 // Update theme button icon
