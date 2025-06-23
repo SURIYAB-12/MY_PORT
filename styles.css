@@ -657,6 +657,21 @@ section {
     transform: translateY(-3px);
     box-shadow: var(--shadow-medium);
 }
+.download-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #1e40af;
+}
 
 .contact-form {
     background: var(--bg-primary);
