@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suriya B - ECE Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <button id="themeBtn" class="theme-btn">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>Suriya B</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#domains" class="nav-link">Domains</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="greeting">Hello, I'm</span>
+                    <span class="name">Suriya B</span>
+                </h1>
+                <p class="hero-subtitle">Electronics & Communication Engineering Student</p>
+                <p class="hero-description">Passionate about Embedded Systems & VLSI Design</p>
+                <div class="hero-buttons">
+                    <a href="#domains" class="btn btn-primary">Explore My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="my_pic.jpg" alt="Suriya B" class="profile-img">
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am an Electronics and Communication Engineering student with a deep passion for technology and innovation. My academic journey has led me to specialize in two fascinating domains: Embedded Systems and VLSI Design.</p>
+                    <p>With hands-on experience in both hardware and software development, I enjoy creating solutions that bridge the gap between theoretical knowledge and practical applications. My goal is to contribute to cutting-edge technologies that shape our digital future.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>3+</h3>
+                            <p>Years of Study</p>
+                        </div>
+                        <div class="stat">
+                            <h3>15+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat">
+                            <h3>2</h3>
+                            <p>Specialization Domains</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Domains Section -->
+    <section id="domains" class="domains">
+        <div class="container">
+            <h2 class="section-title">My Specialization Domains</h2>
+            <div class="domains-grid">
+                <div class="domain-card embedded">
+                    <div class="domain-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Embedded Systems</h3>
+                    <p>Designing and developing embedded solutions using microcontrollers, sensors, and real-time systems. Expertise in C/C++, Arduino, and IoT applications.</p>
+                    <div class="domain-skills">
+                        <span class="skill-tag">C/C++,python</span>
+                        <span class="skill-tag">Assembly programming 8051,8086</span>
+                        <span class="skill-tag">Embedded C</span>
+                        <span class="skill-tag">Sensors</span>
+                        <span class="skill-tag">IOT</span>
+                        <span class="skill-tag">Real-time Systems</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="showDomainDetails('embedded')">Learn More</button>
+                </div>
+                <div class="domain-card vlsi">
+                    <div class="domain-icon">
+                        <i class="fas fa-memory"></i>
+                    </div>
+                    <h3>VLSI Design</h3>
+                    <p>Creating integrated circuits and digital systems using advanced design tools. Focus on digital design, verification, and layout optimization.</p>
+                    <div class="domain-skills">
+                        <span class="skill-tag">Verilog</span>
+                        <span class="skill-tag">System Verilog</span>
+                        <span class="skill-tag">Cadence</span>
+                        <span class="skill-tag">Synthesis</span>
+                        <span class="skill-tag">Digital Design</span>
+                        <span class="skill-tag">Layout Design</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="showDomainDetails('vlsi')">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="embedded">Embedded</button>
+                <button class="filter-btn" data-filter="vlsi">VLSI</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="embedded">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Smart Home Automation</h3>
+                        <p>IoT-based home automation system using Arduino and sensors for remote monitoring and control of home appliances.</p>
+                        <div class="project-tech">
+                            <span>ESP-32 8266</span>
+                            <span>IoT(adafruit IOT)</span>
+                            <span>Sensors</span>
+                            <span>WiFi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="vlsi">
+                    <div class="project-image">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>🔧 RISC-V Processor Design</h3>
+                        <p>Designed and implemented a custom 8-bit RISC-V processor with an ALU, registers, and memory. </p>
+                        <p>Completed full ASIC RTL to GDSII flow using Cadence Genus and Innovus. Achieved clean timing closure and DRC, generating a fabrication-ready GDSII.</p>     
+                        <div class="project-tech">
+                            <span>Verilog</span>
+                            <span>Digital Design</span>
+                            <span>Simulation</span>
+                            <span>Testing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="embedded">
+                    <div class="project-image">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Personalised Medicine Despensor</h3>
+                        <p>A personalized medicine dispenser uses a motorized mechanism to accurately dispense the right dose of medicine at scheduled times.</p>
+                        <p>It integrates IoT features to send reminders, track dosage history, and alert caregivers via smartphone or cloud services.</p>
+                        <div class="project-tech">
+                            <span>Embedded C</span>
+                            <span>Bluetooth</span>
+                            <span>Sensors</span>
+                            <span>IOT</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="vlsi">
+                    <div class="project-image">
+                        <i class="fas fa-memory"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Cyclic Redundancy Check in FPGA </h3>
+                        <p>(CRC) algorithm on FPGA for real-time error detection in digital communication. </p>
+                        <p>  Deployed the design on FPGA hardware, ensuring reliable data integrity with a selected CRC polynomial.</p>
+                        <div class="project-tech">
+                            <span>Verilog</span>
+                            <span>FPGA</span>
+                            <span>Optimization</span>
+                            <span>Verification</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="embedded">
+                    <div class="project-image">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Autonomous Plastic Waste Segergation</h3>
+                        <p> Developed a system that automates plastic waste segregation using deep learning</p>
+                        <p>Collected various plastic types and utilized their distinct temperature coefficients for accurate categorization.</p>
+                        <div class="project-tech">
+                            <span>Computer Vision</span>
+                            <span>Sensors</span>
+                            <span>Control Systems</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="vlsi">
+                    <div class="project-image">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>UART Verification</h3>
+                        <p> This project focuses on verifying the UART communication protocol using the Universal Verification Methodology (UVM).</p>
+                        <p>  A complete UVM testbench is developed, including sequence, driver, monitor, agent, and scoreboard components.</p>
+                        <div class="project-tech">
+                            <span>Verilog</span>
+                            <span>System Verilog</span>
+                            <span>UVM</span>
+                            <span>Verification</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>C/C++</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Embedded C</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>MY sql</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>VLSI tools & tech</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>Verilog</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>System Verilog </span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>UVM verification</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Cadence </span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Hardware & Platforms</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>8086,8051 & PIC16</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>ESP32, UNO</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>FPGA (BASYS 3)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>UART,I2C,CAN protocols</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always interested in discussing new opportunities, innovative projects, and collaborations in the field of Electronics and Communication Engineering.</p>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>suriyab.1215@example.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 8883346123</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Erode, Tamil Nadu, India</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/suriya-b-597238259/" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/SURIYAB-12" class="social-link"><i class="fab fa-github"></i></a>
+                
+                        <a href="mailto:suriyab.1215@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Suriya B. All rights reserved.</p>
+                <p>Electronics & Communication Engineering Student</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Domain Details Modal -->
+    <div id="domainModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
