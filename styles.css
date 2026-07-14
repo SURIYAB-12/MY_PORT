@@ -1,57 +1,58 @@
-.download-btn-container {
-    display: none;
+/* ============================================
+   DESIGN TOKENS — Circuit / Datasheet identity
+   Copper (trace) + Cyan (signal) on deep PCB navy
+   ============================================ */
+:root {
+    --primary-color: #cd7f3f;       /* copper trace */
+    --secondary-color: #8b5a2b;     /* deep copper */
+    --accent-color: #4dd9e8;        /* oscilloscope signal cyan */
+    --text-primary: #1a2130;
+    --text-secondary: #4b5568;
+    --text-light: #7c8698;
+    --bg-primary: #faf9f6;
+    --bg-secondary: #f1efe8;
+    --bg-tertiary: #e7e3d9;
+    --border-color: #ddd7c8;
+    --shadow-light: 0 1px 3px rgba(20, 20, 10, 0.08);
+    --shadow-medium: 0 4px 6px rgba(20, 20, 10, 0.1);
+    --shadow-heavy: 0 10px 25px rgba(20, 20, 10, 0.15);
+    --gradient-primary: linear-gradient(135deg, #cd7f3f 0%, #4dd9e8 100%);
+    --gradient-secondary: linear-gradient(135deg, #4dd9e8 0%, #2b7de9 100%);
+    --gradient-tech: linear-gradient(135deg, #cd7f3f 0%, #e8935a 100%);
+    --font-display: 'JetBrains Mono', 'Courier New', monospace;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* Dark Theme (default) — deep PCB substrate */
+[data-theme="dark"] {
+    --text-primary: #edf1f7;
+    --text-secondary: #a6b0c3;
+    --text-light: #6d7891;
+    --bg-primary: #0d111a;
+    --bg-secondary: #10151f;
+    --bg-tertiary: #1a2130;
+    --border-color: #263049;
+    --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.35);
+    --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.35);
+    --shadow-heavy: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .download-btn {
-    background-color: #111;
-    color: #fff;
-    border: 2px solid #fff;
+    background: var(--gradient-primary);
+    color: #0d111a;
+    font-weight: 700;
+    border: none;
     padding: 14px 36px;
     border-radius: 8px;
     font-size: 1.1rem;
+    font-family: var(--font-display);
     cursor: pointer;
-    transition: background 0.2s, color 0.2s, border 0.2s;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 12px rgba(205, 127, 63, 0.35);
 }
 .download-btn:hover {
-    background-color: #fff;
-    color: #111;
-    border: 2px solid #111;
-}
-/* CSS Variables for Theme */
-:root {
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --accent-color: #3b82f6;
-    --text-primary: #1f2937;
-    --text-secondary: #6b7280;
-    --text-light: #9ca3af;
-    --bg-primary: #ffffff;
-    --bg-secondary: #f9fafb;
-    --bg-tertiary: #f3f4f6;
-    --border-color: #e5e7eb;
-    --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-heavy: 0 10px 25px rgba(0, 0, 0, 0.15);
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --gradient-tech: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    --hero-bg: url('https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop') center/cover;
-}
-
-/* Dark Theme */
-[data-theme="dark"] {
-    --text-primary: #f9fafb;
-    --text-secondary: #d1d5db;
-    --text-light: #9ca3af;
-    --bg-primary: #111827;
-    --bg-secondary: #1f2937;
-    --bg-tertiary: #374151;
-    --border-color: #4b5563;
-    --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --shadow-heavy: 0 10px 25px rgba(0, 0, 0, 0.4);
-    --hero-bg: url('https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop') center/cover;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(77, 217, 232, 0.4);
 }
 
 /* Reset and Base Styles */
@@ -66,11 +67,11 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
     line-height: 1.6;
-    color: #fff;
-    background-color: #000;
-    transition: all 0.3s ease;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -132,12 +133,24 @@ body {
 }
 
 .nav-logo span {
-    font-size: 24px;
+    font-family: var(--font-display);
+    font-size: 22px;
     font-weight: 700;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.nav-logo span::after {
+    content: '_';
+    -webkit-text-fill-color: var(--accent-color);
+    animation: blink-cursor 1.1s step-end infinite;
+}
+
+@keyframes blink-cursor {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
 }
 
 .nav-menu {
@@ -260,6 +273,36 @@ body {
     animation: slideInLeft 1s ease-out;
 }
 
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: var(--accent-color);
+    background: rgba(77, 217, 232, 0.08);
+    border: 1px solid rgba(77, 217, 232, 0.3);
+    padding: 6px 14px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+}
+
+.hero-eyebrow::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color);
+    animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+}
+
 .greeting {
     display: block;
     font-size: 20px;
@@ -269,6 +312,7 @@ body {
 
 .name {
     display: block;
+    font-family: var(--font-display);
     font-size: 48px;
     font-weight: 700;
     background: var(--gradient-primary);
@@ -389,7 +433,24 @@ section:not(.hero) {
     background: var(--bg-primary);
 }
 
+.section-eyebrow {
+    display: block;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--primary-color);
+    margin-bottom: 14px;
+}
+
+.section-eyebrow::before {
+    content: '// ';
+    color: var(--accent-color);
+}
+
 .section-title {
+    font-family: var(--font-display);
     font-size: 36px;
     font-weight: 700;
     text-align: center;
@@ -449,9 +510,10 @@ section:not(.hero) {
 }
 
 .domain-card {
+    position: relative;
     background: var(--bg-primary);
     padding: 40px;
-    border-radius: 20px;
+    border-radius: 8px;
     box-shadow: var(--shadow-medium);
     transition: all 0.3s ease;
     text-align: center;
@@ -464,12 +526,33 @@ section:not(.hero) {
 }
 
 .domain-card.embedded {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(205, 127, 63, 0.08) 0%, rgba(205, 127, 63, 0.02) 100%);
 }
 
 .domain-card.vlsi {
-    background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(245, 87, 108, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(77, 217, 232, 0.08) 0%, rgba(77, 217, 232, 0.02) 100%);
 }
+
+/* IC chip-pin motif — cards read like IC packages with legs */
+.domain-card::before,
+.domain-card::after,
+.project-card::before,
+.project-card::after,
+.skill-category::before,
+.skill-category::after,
+.contact-form::before,
+.contact-form::after {
+    content: '';
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    height: 3px;
+    background-image: repeating-linear-gradient(90deg, var(--primary-color) 0, var(--primary-color) 10px, transparent 10px, transparent 26px);
+    opacity: 0.55;
+}
+
+.domain-card::before, .project-card::before, .skill-category::before, .contact-form::before { top: -3px; }
+.domain-card::after, .project-card::after, .skill-category::after, .contact-form::after { bottom: -3px; }
 
 .domain-icon {
     width: 80px;
@@ -555,12 +638,18 @@ section:not(.hero) {
 }
 
 .project-card {
+    position: relative;
     background: var(--bg-primary);
-    border-radius: 15px;
-    overflow: hidden;
+    border-radius: 8px;
+    overflow: visible;
     box-shadow: var(--shadow-medium);
     transition: all 0.3s ease;
     border: 1px solid var(--border-color);
+}
+
+.project-card > .project-image {
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
 }
 
 .project-card:hover {
@@ -745,22 +834,6 @@ section:not(.hero) {
     transform: translateY(-3px);
     box-shadow: var(--shadow-medium);
 }
-.download-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    transition: background-color 0.3s;
-}
-
-.download-btn:hover {
-    background-color: #1e40af;
-}
-
 .contact-form {
     background: var(--bg-primary);
     padding: 40px;
@@ -793,22 +866,21 @@ section:not(.hero) {
 
 /* Footer */
 .footer {
-    background: #000 !important;
-    color: #fff !important;
-    padding: 30px 0;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    padding: 40px 0 30px;
     text-align: center;
     border-top: 1px solid var(--border-color);
 }
 
 .footer-content p {
-    color: #fff;
+    color: var(--text-light);
+    font-size: 14px;
     margin-bottom: 5px;
 }
 
-.footer .download-btn {
-    display: inline-block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+.footer-content .download-btn {
+    margin-bottom: 20px;
 }
 
 /* Modal */
