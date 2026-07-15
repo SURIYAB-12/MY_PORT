@@ -372,24 +372,53 @@ window.addEventListener('load', () => {
     }
 });
 
-// Add smooth reveal animation for project cards
-const projectObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }, index * 100);
-        }
-    });
-}, { threshold: 0.1 });
+// Scroll-reveal animations across the page
+function initScrollReveal() {
+    const revealSelectors = [
+        '.section-eyebrow',
+        '.section-title',
+        '.domain-card',
+        '.project-card',
+        '.skill-category',
+        '.publication-card',
+        '.about-stats .stat',
+        '.contact-info',
+        '.contact-form'
+    ];
+    const revealEls = document.querySelectorAll(revealSelectors.join(', '));
 
-document.querySelectorAll('.project-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    projectObserver.observe(card);
-});
+    if (!revealEls.length) return;
+
+    revealEls.forEach(el => el.classList.add('reveal'));
+
+    // Stagger elements that share the same parent container
+    const parents = new Set();
+    revealEls.forEach(el => parents.add(el.parentElement));
+    parents.forEach(parent => {
+        const siblings = Array.from(parent.children).filter(c => c.classList.contains('reveal'));
+        siblings.forEach((child, i) => {
+            child.style.transitionDelay = `${Math.min(i, 5) * 0.09}s`;
+        });
+    });
+
+    if (!('IntersectionObserver' in window)) {
+        revealEls.forEach(el => el.classList.add('revealed'));
+        return;
+    }
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', initScrollReveal);
 
 // Enhanced scroll indicator animation
 const scrollIndicator = document.querySelector('.scroll-indicator');
