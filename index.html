@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suriya B - ECE Portfolio</title>
+    <title>Suriya B — VLSI & Embedded Systems Engineer</title>
+    <meta name="description" content="Portfolio of Suriya B, an ECE graduate specializing in VLSI design and embedded systems.">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
@@ -42,7 +43,6 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-    </div>
         <div class="video-background">
             <video autoplay muted loop playsinline id="bgVideo">
                 <source src="background.mp4" type="video/mp4">
@@ -51,12 +51,13 @@
         </div>
         <div class="hero-content">
             <div class="hero-text">
+                <span class="hero-eyebrow">OPEN TO VLSI & EMBEDDED ROLES</span>
                 <h1 class="hero-title">
                     <span class="greeting">Hello, I'm</span>
                     <span class="name">Suriya B</span>
                 </h1>
-                <p class="hero-subtitle">Electronics & Communication Engineering Student</p>
-                <p class="hero-description">Passionate about Embedded Systems & VLSI Design</p>
+                <p class="hero-subtitle">VLSI Design & Embedded Systems Engineer</p>
+                <p class="hero-description">ECE Graduate building from silicon RTL to real-time firmware</p>
                 <div class="hero-buttons">
                     <a href="#domains" class="btn btn-primary">Explore My Work</a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -74,15 +75,16 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
+            <span class="section-eyebrow">01 — Profile</span>
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I am an Electronics and Communication Engineering student with a deep passion for technology and innovation. My academic journey has led me to specialize in two fascinating domains: Embedded Systems and VLSI Design.</p>
-                    <p>With hands-on experience in both hardware and software development, I enjoy creating solutions that bridge the gap between theoretical knowledge and practical applications. My goal is to contribute to cutting-edge technologies that shape our digital future.</p>
+                    <p>I'm an Electronics and Communication Engineering graduate with a deep passion for technology and innovation. My academic journey has led me to specialize in two connected domains: Embedded Systems and VLSI Design.</p>
+                    <p>With hands-on experience across hardware and firmware, I enjoy building solutions that bridge theoretical knowledge and practical application — from RTL that becomes silicon to code that runs on it. I'm currently looking for roles where I can contribute to that pipeline end to end.</p>
                     <div class="about-stats">
                         <div class="stat">
-                            <h3>3+</h3>
-                            <p>Years of Study</p>
+                            <h3>8.35</h3>
+                            <p>CGPA, B.E. ECE</p>
                         </div>
                         <div class="stat">
                             <h3>15+</h3>
@@ -101,6 +103,7 @@
     <!-- Domains Section -->
     <section id="domains" class="domains">
         <div class="container">
+            <span class="section-eyebrow">02 — Specializations</span>
             <h2 class="section-title">My Specialization Domains</h2>
             <div class="domains-grid">
                 <div class="domain-card embedded">
@@ -110,11 +113,12 @@
                     <h3>Embedded Systems</h3>
                     <p>Designing and developing embedded solutions using microcontrollers, sensors, and real-time systems. Expertise in C/C++, Arduino, and IoT applications.</p>
                     <div class="domain-skills">
-                        <span class="skill-tag">C/C++,python</span>
-                        <span class="skill-tag">Assembly programming 8051,8086</span>
+                        <span class="skill-tag">C / C++</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">8051 / 8086 Assembly</span>
                         <span class="skill-tag">Embedded C</span>
                         <span class="skill-tag">Sensors</span>
-                        <span class="skill-tag">IOT</span>
+                        <span class="skill-tag">IoT</span>
                         <span class="skill-tag">Real-time Systems</span>
                     </div>
                     <button class="btn btn-outline" onclick="showDomainDetails('embedded')">Learn More</button>
@@ -142,6 +146,7 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
+            <span class="section-eyebrow">03 — Work</span>
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-filter">
                 <button class="filter-btn active" data-filter="all">All</button>
@@ -157,10 +162,10 @@
                         <h3>Smart Home Automation</h3>
                         <p>IoT-based home automation system using Arduino and sensors for remote monitoring and control of home appliances.</p>
                         <div class="project-tech">
-                            <span>ESP-32 8266</span>
-                            <span>IoT(adafruit IOT)</span>
+                            <span>ESP32 / ESP8266</span>
+                            <span>Adafruit IO</span>
                             <span>Sensors</span>
-                            <span>WiFi 2.5 GHz</span>
+                            <span>Wi-Fi 2.4GHz</span>
                         </div>
                         <a href="https://github.com/SURIYAB-12" target="_blank" class="project-link">
                             <i class="fab fa-github"></i> View on GitHub
@@ -173,8 +178,7 @@
                     </div>
                     <div class="project-content">
                         <h3>RISC-V Processor Design</h3>
-                        <p>Designed and implemented a custom 8-bit RISC-V processor with an ALU, registers, and memory. </p>
-                        <p>Completed full ASIC RTL to GDSII flow using Cadence Genus and Innovus. Achieved clean timing closure and DRC, generating a fabrication-ready GDSII.</p>
+                        <p>Designed and implemented a custom 8-bit RISC-V processor with an ALU, registers, and memory, then carried it through a full ASIC RTL-to-GDSII flow using Cadence Genus and Innovus — achieving clean timing closure and DRC for a fabrication-ready GDSII.</p>
                         <div class="project-tech">
                             <span>Verilog</span>
                             <span>Digital Design</span>
@@ -191,14 +195,13 @@
                         <i class="fas fa-map-pin"></i>
                     </div>
                     <div class="project-content">
-                        <h3>GPS location identifier</h3>
-                        <p> This project interfaces the U-blox G7020 GPS module with the PIC16F877A microcontroller to obtain real-time latitude and longitude data from satellites.</p>
-                        <p>This setup can be integrated into embedded systems for location tracking applications.</p>
+                        <h3>GPS Location Identifier</h3>
+                        <p>Interfaces a U-blox G7020 GPS module with the PIC16F877A microcontroller to obtain real-time latitude and longitude data from satellites — a building block for embedded location-tracking applications.</p>
                         <div class="project-tech">
                             <span>Embedded C</span>
-                            <span>GPS ublox-g7020</span>
+                            <span>U-blox G7020</span>
                             <span>PIC16F877A</span>
-                            <span>IOT</span>
+                            <span>UART</span>
                         </div>
                         <a href="https://github.com/SURIYAB-12" target="_blank" class="project-link">
                             <i class="fab fa-github"></i> View on GitHub
@@ -210,9 +213,8 @@
                         <i class="fas fa-search"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Cyclic Redundancy Check in FPGA </h3>
-                        <p>(CRC) algorithm on FPGA for real-time error detection in digital communication. </p>
-                        <p>  Deployed the design on FPGA hardware, ensuring reliable data integrity with a selected CRC polynomial.</p>
+                        <h3>Cyclic Redundancy Check on FPGA</h3>
+                        <p>Implemented a CRC algorithm for real-time error detection in digital communication and deployed the design on FPGA hardware, ensuring reliable data integrity with a selected CRC polynomial.</p>
                         <div class="project-tech">
                             <span>Verilog</span>
                             <span>FPGA</span>
@@ -230,11 +232,10 @@
                     </div>
                     <div class="project-content">
                         <h3>RTC-Based Digital Clock</h3>
-                        <p> : This project interfaces a Real-Time Clock (RTC) module with a PIC microcontroller to track real-world time and date.</p>
-                        <p> It can function as a digital clock and trigger time-based events in embedded systems.</p>
+                        <p>Interfaces a DS3231 Real-Time Clock module with a PIC microcontroller over I2C to track real-world time and date, functioning as a digital clock that can trigger time-based events in embedded systems.</p>
                         <div class="project-tech">
-                            <span>Embedded c</span>
-                            <span>RTC- DS3231</span>
+                            <span>Embedded C</span>
+                            <span>RTC DS3231</span>
                             <span>I2C</span>
                             <span>PIC16F877A</span>
                         </div>
@@ -249,8 +250,7 @@
                     </div>
                     <div class="project-content">
                         <h3>UART Verification</h3>
-                        <p> This project focuses on verifying the UART communication protocol using the Universal Verification Methodology (UVM).</p>
-                        <p>  A complete UVM testbench is developed, including sequence, driver, monitor, agent, and scoreboard components.</p>
+                        <p>Verified the UART communication protocol using the Universal Verification Methodology (UVM), with a complete testbench including sequence, driver, monitor, agent, and scoreboard components.</p>
                         <div class="project-tech">
                             <span>Verilog</span>
                             <span>System Verilog</span>
@@ -269,6 +269,7 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
+            <span class="section-eyebrow">04 — Toolkit</span>
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
@@ -293,7 +294,7 @@
                             </div>
                         </div>
                         <div class="skill-item">
-                            <span>MY sql</span>
+                            <span>MySQL</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 80%"></div>
                             </div>
@@ -365,6 +366,7 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
+            <span class="section-eyebrow">05 — Contact</span>
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-content">
                 <div class="contact-info">
@@ -373,7 +375,7 @@
                     <div class="contact-items">
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <span>suriyab.1215@example.com</span>
+                            <span>suriyab.1215@gmail.com</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
@@ -385,30 +387,27 @@
                         </div>
                     </div>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/suriya-b-597238259/" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/SURIYAB-12" class="social-link"><i class="fab fa-github"></i></a>
-                
-                        <a href="mailto:suriyab.1215@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/suriya-b-597238259/" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/SURIYAB-12" class="social-link" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="mailto:suriyab.1215@gmail.com" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <div class="contact-form">
-                        <form>
-                            <div class="form-group">
-                                <input type="text" name="name" placeholder="Your Name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" placeholder="Your Email" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="subject" placeholder="Subject" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </form>
-                    </div>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -421,8 +420,8 @@
                 <a href="resume.pdf" download>
                     <button class="download-btn">Download Resume</button>
                 </a>
-                <p>&copy; 2024 Suriya B. All rights reserved.</p>
-                <p>Electronics & Communication Engineering Student</p>
+                <p>&copy; 2026 Suriya B. All rights reserved.</p>
+                <p>VLSI Design & Embedded Systems Engineer</p>
             </div>
         </div>
     </footer>
