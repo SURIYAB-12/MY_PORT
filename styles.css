@@ -209,6 +209,25 @@ body {
     overflow: hidden;
 }
 
+/* Animated signal trace along hero's bottom edge */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent-color) 20%, var(--primary-color) 50%, var(--accent-color) 80%, transparent 100%);
+    background-size: 200% 100%;
+    animation: trace-sweep 4s linear infinite;
+    z-index: 2;
+}
+
+@keyframes trace-sweep {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
 /* Video Background Styles */
 .video-background {
     position: fixed;
@@ -238,13 +257,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.5) 0%, rgba(30, 64, 175, 0.6) 100%);
-    opacity: 0.7;
+    background: linear-gradient(135deg, rgba(13, 17, 26, 0.75) 0%, rgba(19, 25, 38, 0.8) 100%);
+    opacity: 0.85;
 }
 
 [data-theme="dark"] .video-overlay {
-    background: linear-gradient(135deg, rgba(17, 24, 39, 0.7) 0%, rgba(31, 41, 55, 0.75) 100%);
-    opacity: 0.8;
+    background: linear-gradient(135deg, rgba(13, 17, 26, 0.8) 0%, rgba(16, 21, 31, 0.85) 100%);
+    opacity: 0.9;
 }
 
 .hero-background {
@@ -306,7 +325,7 @@ body {
 .greeting {
     display: block;
     font-size: 20px;
-    color: var(--text-secondary);
+    color: #c3cbda;
     margin-bottom: 10px;
 }
 
@@ -324,13 +343,13 @@ body {
 
 .hero-subtitle {
     font-size: 24px;
-    color: var(--text-secondary);
+    color: #dbe1ec;
     margin-bottom: 10px;
 }
 
 .hero-description {
     font-size: 18px;
-    color: var(--text-light);
+    color: #93a1ba;
     margin-bottom: 30px;
 }
 
@@ -344,9 +363,31 @@ body {
     display: flex;
     justify-content: center;
     animation: slideInRight 1s ease-out;
+    position: relative;
+}
+
+/* Chip-socket ring — a nod to an IC seated in its socket */
+.hero-image::before {
+    content: '';
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2px dashed var(--accent-color);
+    opacity: 0.5;
+    animation: rotate-ring 18s linear infinite;
+}
+
+@keyframes rotate-ring {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .profile-img {
+    position: relative;
     width: 300px;
     height: 300px;
     border-radius: 50%;
@@ -358,7 +399,7 @@ body {
 
 .profile-img:hover {
     transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 20px 40px rgba(77, 217, 232, 0.35);
 }
 
 .scroll-indicator {
@@ -381,18 +422,19 @@ body {
 .btn {
     display: inline-block;
     padding: 12px 30px;
-    border-radius: 50px;
+    border-radius: 4px;
     text-decoration: none;
+    font-family: var(--font-display);
     font-weight: 600;
     transition: all 0.3s ease;
     border: 2px solid transparent;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .btn-primary {
     background: var(--gradient-primary);
-    color: white;
+    color: #0d111a;
 }
 
 .btn-primary:hover {
@@ -408,7 +450,7 @@ body {
 
 .btn-secondary:hover {
     background: var(--primary-color);
-    color: white;
+    color: #0d111a;
 }
 
 .btn-outline {
@@ -419,7 +461,13 @@ body {
 
 .btn-outline:hover {
     background: var(--primary-color);
-    color: white;
+    color: #0d111a;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
 }
 
 /* Section Styles */
@@ -564,7 +612,7 @@ section:not(.hero) {
     align-items: center;
     justify-content: center;
     font-size: 32px;
-    color: white;
+    color: #0d111a;
 }
 
 .domain-card.vlsi .domain-icon {
@@ -596,8 +644,10 @@ section:not(.hero) {
     background: var(--bg-tertiary);
     color: var(--text-primary);
     padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    font-family: var(--font-display);
+    font-size: 13px;
     font-weight: 500;
 }
 
@@ -618,16 +668,18 @@ section:not(.hero) {
     border: 2px solid var(--border-color);
     background: transparent;
     color: var(--text-secondary);
-    border-radius: 25px;
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-family: var(--font-display);
+    font-size: 14px;
     font-weight: 500;
 }
 
 .filter-btn.active,
 .filter-btn:hover {
     background: var(--primary-color);
-    color: white;
+    color: #0d111a;
     border-color: var(--primary-color);
 }
 
@@ -691,11 +743,12 @@ section:not(.hero) {
     margin-top: 15px;
     padding: 8px 16px;
     background: var(--gradient-primary);
-    color: white;
+    color: #0d111a;
     text-decoration: none;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 500;
+    border-radius: 4px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
     transition: all 0.3s ease;
 }
 
@@ -718,8 +771,10 @@ section:not(.hero) {
     background: var(--bg-tertiary);
     color: var(--text-primary);
     padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    font-family: var(--font-display);
+    font-size: 11px;
     font-weight: 500;
 }
 
@@ -731,9 +786,10 @@ section:not(.hero) {
 }
 
 .skill-category {
+    position: relative;
     background: var(--bg-primary);
     padding: 30px;
-    border-radius: 15px;
+    border-radius: 8px;
     box-shadow: var(--shadow-medium);
     border: 1px solid var(--border-color);
 }
@@ -821,7 +877,7 @@ section:not(.hero) {
     width: 45px;
     height: 45px;
     background: var(--gradient-primary);
-    color: white;
+    color: #0d111a;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -835,9 +891,10 @@ section:not(.hero) {
     box-shadow: var(--shadow-medium);
 }
 .contact-form {
+    position: relative;
     background: var(--bg-primary);
     padding: 40px;
-    border-radius: 15px;
+    border-radius: 8px;
     box-shadow: var(--shadow-medium);
     border: 1px solid var(--border-color);
 }
@@ -862,6 +919,20 @@ section:not(.hero) {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
+}
+
+.form-status {
+    margin-top: 12px;
+    font-size: 14px;
+    min-height: 20px;
+}
+
+.form-status.success {
+    color: #3fb87f;
+}
+
+.form-status.error {
+    color: #e8615a;
 }
 
 /* Footer */
@@ -900,11 +971,40 @@ section:not(.hero) {
     background-color: var(--bg-primary);
     margin: 5% auto;
     padding: 40px;
-    border-radius: 15px;
+    border-radius: 8px;
     width: 90%;
     max-width: 600px;
     position: relative;
     box-shadow: var(--shadow-heavy);
+    border: 1px solid var(--border-color);
+}
+
+.modal-content h2 {
+    font-family: var(--font-display);
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.modal-content h3 {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--accent-color);
+    margin: 20px 0 10px;
+}
+
+.modal-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.modal-content ul {
+    color: var(--text-secondary);
+    padding-left: 20px;
+    line-height: 1.8;
+}
+
+.modal-content strong {
+    color: var(--text-primary);
 }
 
 .close {
@@ -1202,16 +1302,16 @@ html {
 /* Skill bar glow effect */
 .skill-progress {
     position: relative;
-    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+    box-shadow: 0 0 10px rgba(77, 217, 232, 0.5);
 }
 
 /* Project card hover effect with glow */
 .project-card:hover {
-    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 15px 40px rgba(205, 127, 63, 0.2);
 }
 
 [data-theme="dark"] .project-card:hover {
-    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 15px 40px rgba(77, 217, 232, 0.25);
 }
 
 /* Enhanced social links */
@@ -1253,4 +1353,23 @@ body {
     to {
         opacity: 1;
     }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Visible keyboard focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
