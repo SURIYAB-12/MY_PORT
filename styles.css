@@ -3,9 +3,9 @@
    Copper (trace) + Cyan (signal) on deep PCB navy
    ============================================ */
 :root {
-    --primary-color: #cd7f3f;       /* copper trace */
-    --secondary-color: #8b5a2b;     /* deep copper */
-    --accent-color: #4dd9e8;        /* oscilloscope signal cyan */
+    --primary-color: #a8622e;       /* copper trace — deepened for light-bg contrast */
+    --secondary-color: #7a481f;     /* deep copper */
+    --accent-color: #0e7490;        /* signal teal — deepened for light-bg contrast */
     --text-primary: #1a2130;
     --text-secondary: #4b5568;
     --text-light: #7c8698;
@@ -16,15 +16,20 @@
     --shadow-light: 0 1px 3px rgba(20, 20, 10, 0.08);
     --shadow-medium: 0 4px 6px rgba(20, 20, 10, 0.1);
     --shadow-heavy: 0 10px 25px rgba(20, 20, 10, 0.15);
-    --gradient-primary: linear-gradient(135deg, #cd7f3f 0%, #4dd9e8 100%);
-    --gradient-secondary: linear-gradient(135deg, #4dd9e8 0%, #2b7de9 100%);
-    --gradient-tech: linear-gradient(135deg, #cd7f3f 0%, #e8935a 100%);
+    --gradient-primary: linear-gradient(135deg, #a8622e 0%, #0e7490 100%);
+    --gradient-secondary: linear-gradient(135deg, #0e7490 0%, #1d4ed8 100%);
+    --gradient-tech: linear-gradient(135deg, #a8622e 0%, #b8632f 100%);
+    --gradient-text-color: #ffffff; /* text sitting on gradient fills */
+    --hero-gradient: linear-gradient(135deg, #e0954f 0%, #52dde9 100%); /* always-vivid, hero sits on video */
     --font-display: 'JetBrains Mono', 'Courier New', monospace;
     --font-body: 'Inter', sans-serif;
 }
 
 /* Dark Theme (default) — deep PCB substrate */
 [data-theme="dark"] {
+    --primary-color: #cd7f3f;
+    --secondary-color: #8b5a2b;
+    --accent-color: #4dd9e8;
     --text-primary: #edf1f7;
     --text-secondary: #a6b0c3;
     --text-light: #6d7891;
@@ -35,11 +40,15 @@
     --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.35);
     --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.35);
     --shadow-heavy: 0 10px 25px rgba(0, 0, 0, 0.5);
+    --gradient-primary: linear-gradient(135deg, #cd7f3f 0%, #4dd9e8 100%);
+    --gradient-secondary: linear-gradient(135deg, #4dd9e8 0%, #2b7de9 100%);
+    --gradient-tech: linear-gradient(135deg, #cd7f3f 0%, #e8935a 100%);
+    --gradient-text-color: var(--gradient-text-color);
 }
 
 .download-btn {
     background: var(--gradient-primary);
-    color: #0d111a;
+    color: var(--gradient-text-color);
     font-weight: 700;
     border: none;
     padding: 14px 36px;
@@ -48,11 +57,11 @@
     font-family: var(--font-display);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 12px rgba(205, 127, 63, 0.35);
+    box-shadow: 0 2px 12px rgba(168, 98, 46, 0.35);
 }
 .download-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(77, 217, 232, 0.4);
+    box-shadow: 0 6px 20px rgba(14, 116, 144, 0.4);
 }
 
 /* Reset and Base Styles */
@@ -217,7 +226,7 @@ body {
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent 0%, var(--accent-color) 20%, var(--primary-color) 50%, var(--accent-color) 80%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, #6ee3ef 20%, #e0954f 50%, #6ee3ef 80%, transparent 100%);
     background-size: 200% 100%;
     animation: trace-sweep 4s linear infinite;
     z-index: 2;
@@ -299,7 +308,7 @@ body {
     font-family: var(--font-display);
     font-size: 13px;
     letter-spacing: 0.12em;
-    color: var(--accent-color);
+    color: #6ee3ef;
     background: rgba(77, 217, 232, 0.08);
     border: 1px solid rgba(77, 217, 232, 0.3);
     padding: 6px 14px;
@@ -312,8 +321,8 @@ body {
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: var(--accent-color);
-    box-shadow: 0 0 8px var(--accent-color);
+    background: #6ee3ef;
+    box-shadow: 0 0 8px #6ee3ef;
     animation: pulse-dot 1.6s ease-in-out infinite;
 }
 
@@ -334,7 +343,7 @@ body {
     font-family: var(--font-display);
     font-size: 48px;
     font-weight: 700;
-    background: var(--gradient-primary);
+    background: var(--hero-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -359,6 +368,22 @@ body {
     flex-wrap: wrap;
 }
 
+/* Hero buttons always use the vivid fixed hero gradient regardless of theme */
+.hero-buttons .btn-primary {
+    background: var(--hero-gradient);
+    color: #0d111a;
+}
+
+.hero-buttons .btn-secondary {
+    color: #6ee3ef;
+    border-color: #6ee3ef;
+}
+
+.hero-buttons .btn-secondary:hover {
+    background: #6ee3ef;
+    color: #0d111a;
+}
+
 .hero-image {
     display: flex;
     justify-content: center;
@@ -376,7 +401,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    border: 2px dashed var(--accent-color);
+    border: 2px dashed #6ee3ef;
     opacity: 0.5;
     animation: rotate-ring 18s linear infinite;
 }
@@ -392,7 +417,7 @@ body {
     height: 300px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid var(--primary-color);
+    border: 5px solid #e0954f;
     box-shadow: var(--shadow-heavy);
     transition: all 0.3s ease;
 }
@@ -413,8 +438,8 @@ body {
 .scroll-arrow {
     width: 20px;
     height: 20px;
-    border-right: 2px solid var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
+    border-right: 2px solid #e0954f;
+    border-bottom: 2px solid #e0954f;
     transform: rotate(45deg);
 }
 
@@ -434,7 +459,7 @@ body {
 
 .btn-primary {
     background: var(--gradient-primary);
-    color: #0d111a;
+    color: var(--gradient-text-color);
 }
 
 .btn-primary:hover {
@@ -450,7 +475,7 @@ body {
 
 .btn-secondary:hover {
     background: var(--primary-color);
-    color: #0d111a;
+    color: var(--gradient-text-color);
 }
 
 .btn-outline {
@@ -461,7 +486,7 @@ body {
 
 .btn-outline:hover {
     background: var(--primary-color);
-    color: #0d111a;
+    color: var(--gradient-text-color);
 }
 
 .btn:disabled {
@@ -602,6 +627,16 @@ section:not(.hero) {
 .domain-card::before, .project-card::before, .skill-category::before, .contact-form::before { top: -3px; }
 .domain-card::after, .project-card::after, .skill-category::after, .contact-form::after { bottom: -3px; }
 
+.project-card[data-category="embedded"]::before,
+.project-card[data-category="embedded"]::after {
+    background-image: repeating-linear-gradient(90deg, var(--primary-color) 0, var(--primary-color) 10px, transparent 10px, transparent 26px);
+}
+
+.project-card[data-category="vlsi"]::before,
+.project-card[data-category="vlsi"]::after {
+    background-image: repeating-linear-gradient(90deg, var(--accent-color) 0, var(--accent-color) 10px, transparent 10px, transparent 26px);
+}
+
 .domain-icon {
     width: 80px;
     height: 80px;
@@ -612,7 +647,7 @@ section:not(.hero) {
     align-items: center;
     justify-content: center;
     font-size: 32px;
-    color: #0d111a;
+    color: var(--gradient-text-color);
 }
 
 .domain-card.vlsi .domain-icon {
@@ -651,6 +686,68 @@ section:not(.hero) {
     font-weight: 500;
 }
 
+/* Publications Section */
+.publications {
+    background: var(--bg-primary);
+}
+
+.publication-card {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: var(--shadow-medium);
+}
+
+.publication-card::before,
+.publication-card::after {
+    content: '';
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    height: 3px;
+    background-image: repeating-linear-gradient(90deg, var(--accent-color) 0, var(--accent-color) 10px, transparent 10px, transparent 26px);
+    opacity: 0.55;
+}
+
+.publication-card::before { top: -3px; }
+.publication-card::after { bottom: -3px; }
+
+.publication-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--accent-color);
+    background: rgba(77, 217, 232, 0.1);
+    border: 1px solid var(--accent-color);
+    padding: 6px 14px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+}
+
+.publication-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 18px;
+    line-height: 1.4;
+}
+
+.publication-abstract {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
 /* Projects Section */
 .projects {
     background: var(--bg-secondary);
@@ -679,7 +776,7 @@ section:not(.hero) {
 .filter-btn.active,
 .filter-btn:hover {
     background: var(--primary-color);
-    color: #0d111a;
+    color: var(--gradient-text-color);
     border-color: var(--primary-color);
 }
 
@@ -716,7 +813,42 @@ section:not(.hero) {
     align-items: center;
     justify-content: center;
     font-size: 48px;
-    color: white;
+    color: var(--gradient-text-color);
+}
+
+/* Category color-coding: embedded = copper, vlsi = cyan */
+.project-card[data-category="embedded"] {
+    border-top: 3px solid var(--primary-color);
+}
+
+.project-card[data-category="embedded"] .project-image {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+}
+
+.project-card[data-category="embedded"] .project-tech span {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.project-card[data-category="embedded"] .project-link {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+}
+
+.project-card[data-category="vlsi"] {
+    border-top: 3px solid var(--accent-color);
+}
+
+.project-card[data-category="vlsi"] .project-image {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #2b7de9 100%);
+}
+
+.project-card[data-category="vlsi"] .project-tech span {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.project-card[data-category="vlsi"] .project-link {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #2b7de9 100%);
 }
 
 .project-content {
@@ -743,7 +875,7 @@ section:not(.hero) {
     margin-top: 15px;
     padding: 8px 16px;
     background: var(--gradient-primary);
-    color: #0d111a;
+    color: var(--gradient-text-color);
     text-decoration: none;
     border-radius: 4px;
     font-family: var(--font-display);
@@ -877,7 +1009,7 @@ section:not(.hero) {
     width: 45px;
     height: 45px;
     background: var(--gradient-primary);
-    color: #0d111a;
+    color: var(--gradient-text-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
