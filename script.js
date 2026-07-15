@@ -215,16 +215,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const contactForm = document.querySelector('.contact-form form');
     if (contactForm) {
+        // Create a status message element under the form
+        let statusEl = document.createElement('p');
+        statusEl.className = 'form-status';
+        contactForm.appendChild(statusEl);
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            const name = contactForm.querySelector('input[name="name"]').value;
-            const email = contactForm.querySelector('input[name="email"]').value;
-            const subject = contactForm.querySelector('input[name="subject"]').value;
-            const message = contactForm.querySelector('textarea[name="message"]').value;
+            const name = contactForm.querySelector('input[name="name"]').value.trim();
+            const email = contactForm.querySelector('input[name="email"]').value.trim();
+            const subject = contactForm.querySelector('input[name="subject"]').value.trim();
+            const message = contactForm.querySelector('textarea[name="message"]').value.trim();
+
+            statusEl.textContent = '';
+            statusEl.className = 'form-status';
 
             if (!name || !email || !subject || !message) {
-                alert('Please fill in all fields.');
+                statusEl.textContent = 'Please fill in all fields.';
+                statusEl.classList.add('error');
+                return;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                statusEl.textContent = 'Please enter a valid email address.';
+                statusEl.classList.add('error');
                 return;
             }
 
@@ -236,13 +255,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 message: fullMessage
             };
 
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
             emailjs.send('service_mju56z8', 'template_eqrkxqn', templateParams)
                 .then(function () {
-                    alert('Thank you for your message! I will get back to you soon.');
+                    statusEl.textContent = 'Thanks for reaching out — I\'ll get back to you soon!';
+                    statusEl.classList.add('success');
                     contactForm.reset();
                 }, function (error) {
-                    alert('Oops... Something went wrong.');
-                    console.error(error);
+                    statusEl.textContent = 'Something went wrong sending your message. Please email me directly at suriyab.1215@gmail.com instead.';
+                    statusEl.classList.add('error');
+                    console.error('EmailJS error:', error);
+                })
+                .finally(function () {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
                 });
         });
     }
