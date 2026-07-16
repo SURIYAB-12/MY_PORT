@@ -719,6 +719,18 @@ section:not(.hero) {
 .publication-card::before { top: -3px; }
 .publication-card::after { bottom: -3px; }
 
+.publication-image {
+    display: block;
+    width: 100%;
+    max-height: 320px;
+    object-fit: contain;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 22px;
+    padding: 12px;
+}
+
 .publication-badge {
     display: inline-flex;
     align-items: center;
