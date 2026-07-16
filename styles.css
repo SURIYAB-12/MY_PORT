@@ -8,18 +8,18 @@
     --accent-color: #0e7490;        /* signal teal — deepened for light-bg contrast */
     --text-primary: #1a2130;
     --text-secondary: #4b5568;
-    --text-light: #7c8698;
-    --bg-primary: #faf9f6;
-    --bg-secondary: #f1efe8;
-    --bg-tertiary: #e7e3d9;
-    --border-color: #ddd7c8;
+    --text-light: #626e83;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f1efe6;
+    --bg-tertiary: #e6e1d3;
+    --border-color: #d9d2c0;
     --shadow-light: 0 1px 3px rgba(20, 20, 10, 0.08);
     --shadow-medium: 0 4px 6px rgba(20, 20, 10, 0.1);
     --shadow-heavy: 0 10px 25px rgba(20, 20, 10, 0.15);
     --gradient-primary: linear-gradient(135deg, #a8622e 0%, #0e7490 100%);
     --gradient-secondary: linear-gradient(135deg, #0e7490 0%, #1d4ed8 100%);
     --gradient-tech: linear-gradient(135deg, #a8622e 0%, #b8632f 100%);
-    --gradient-text-color: #ffffff; /* text sitting on gradient fills */
+    --gradient-text-color: #ffffff; /* text sitting on gradient fills — white reads well on light-theme's deep copper/teal */
     --hero-gradient: linear-gradient(135deg, #e0954f 0%, #52dde9 100%); /* always-vivid, hero sits on video */
     --font-display: 'JetBrains Mono', 'Courier New', monospace;
     --font-body: 'Inter', sans-serif;
@@ -30,20 +30,20 @@
     --primary-color: #cd7f3f;
     --secondary-color: #8b5a2b;
     --accent-color: #4dd9e8;
-    --text-primary: #edf1f7;
-    --text-secondary: #a6b0c3;
-    --text-light: #6d7891;
-    --bg-primary: #0d111a;
-    --bg-secondary: #10151f;
-    --bg-tertiary: #1a2130;
-    --border-color: #263049;
+    --text-primary: #f2f5f9;
+    --text-secondary: #b0bacc;
+    --text-light: #8b96ac;
+    --bg-primary: #0a0d14;
+    --bg-secondary: #141a28;
+    --bg-tertiary: #1e2740;
+    --border-color: #2e3a58;
     --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.35);
     --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.35);
     --shadow-heavy: 0 10px 25px rgba(0, 0, 0, 0.5);
     --gradient-primary: linear-gradient(135deg, #cd7f3f 0%, #4dd9e8 100%);
     --gradient-secondary: linear-gradient(135deg, #4dd9e8 0%, #2b7de9 100%);
     --gradient-tech: linear-gradient(135deg, #cd7f3f 0%, #e8935a 100%);
-    --gradient-text-color: var(--gradient-text-color);
+    --gradient-text-color: #0a0d14; /* dark text reads far better on dark-theme's bright copper/cyan than white does */
 }
 
 .download-btn {
@@ -584,7 +584,7 @@ section:not(.hero) {
 
 .domain-card {
     position: relative;
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
     padding: 40px;
     border-radius: 8px;
     box-shadow: var(--shadow-medium);
@@ -599,11 +599,13 @@ section:not(.hero) {
 }
 
 .domain-card.embedded {
-    background: linear-gradient(135deg, rgba(205, 127, 63, 0.08) 0%, rgba(205, 127, 63, 0.02) 100%);
+    background-color: var(--bg-secondary);
+    background-image: linear-gradient(135deg, rgba(205, 127, 63, 0.12) 0%, rgba(205, 127, 63, 0.03) 100%);
 }
 
 .domain-card.vlsi {
-    background: linear-gradient(135deg, rgba(77, 217, 232, 0.08) 0%, rgba(77, 217, 232, 0.02) 100%);
+    background-color: var(--bg-secondary);
+    background-image: linear-gradient(135deg, rgba(77, 217, 232, 0.12) 0%, rgba(77, 217, 232, 0.03) 100%);
 }
 
 /* IC chip-pin motif — cards read like IC packages with legs */
